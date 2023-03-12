@@ -1,0 +1,65 @@
+<div class="py-5" style="background-color:{{ section.settings.background_color }};">
+  <div class="container">
+    <div class="col-md-10 mx-auto">
+      <div class="text-center">
+        <h2 class="letter-spacing-0 font-lovera fs-52 text-none">{{ section.settings.heading_text }}</h2>
+        <p class="fs-16">{{ section.settings.text }}</p>
+        <a href="{{ section.settings.button_url }}" class="button-purple my-2">{{ section.settings.button_text }}</a>
+        <p class="font-semibold fs-11">{{ section.settings.details_text }}</p>
+        <img class="mt-5" src="{{ section.settings.image | img_url: '600x500' }}">
+      </div>
+    </div>
+  </div>
+</div>
+{% schema %}
+  {
+    "name": "Section name",
+    "settings": [
+		{
+			"type":"color",
+			"id":"background_color",
+			"label":"background color"
+		},
+		{
+			"type":"textarea",
+			"id":"heading_text",
+			"label":"heading text"
+		},
+		{
+			"type":"textarea",
+			"id":"text",
+			"label":"text"
+		},
+		{
+			"type":"text",
+			"id":"button_text",
+			"label":"button text"
+		},
+		{	
+			"type":"url",
+			"id":"button_url",
+			"label":"button link"
+		},
+		{
+			"type":"textarea",
+			"id":"details_text",
+			"label":"text"
+		},
+		{
+			"type":"image_picker",
+			"id":"image",
+			"label":"image"
+		}
+	],
+	"presets": [{
+    "name": "you tell us",
+    "category": "section"
+    }]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

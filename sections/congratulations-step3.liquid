@@ -1,0 +1,111 @@
+{% if section.settings.step-3-check == true %}
+<!-- <div class="congratulations-border"><span class="w-25"></span></div> -->
+<div class="container py-5 hide" step="3" data-result="">
+  <div class="congratulations-deatils d-flex flex-column justify-content-center py-4">
+    <div class="col-md-5 z-index-999 col-sm-8 mx-auto my-2">
+      <img src="{{ section.settings.section_img | img_url: 'master' }}">
+    </div>
+    <div class="col-lg-7 col-md-10 col-12 mx-auto">
+      <h1 class="fs-24 text-center">{{ section.settings.text }}</h1>
+    </div>
+    <div class="col-lg-5 col-md-7 col-sm-8 mx-auto my-2">
+      <div class="cong-step-2-details">
+        {% for block in section.blocks %}
+        <div class="custom-radio mx-auto px-3 py-2 d-flex align-items-center {% if block.settings.border-ckeck == true %} cong-details-border {% endif %}" radio_div>
+          <label class="cong-2-input">
+            <input type="radio" id="customRadio2_{{ forloop.index }}" name="quizAnswer" value="{{ block.settings.cong_details_text }}" class="custom-control-input">
+            <span class="img-box"><img src="{{ block.settings.deatils_img | img_url: 'master' }}"></span>
+            <span class="w-100">{{ block.settings.cong_details_text }}</span>
+          </label>
+        </div>
+        {% endfor %}
+      </div>
+      <div class="d-flex align-items-center justify-content-center mt-4">
+        <a href="javascript:void(0)" class="mx-4 previous_step" data-current="3" data-previos="2"><img src="{{ section.settings.left_arrow | img_url: '40x40'}}"></a>
+        <button class="right-arrow p-3 mx-4 next_question" data-current="3" data-next="4" disabled="disabled"><img src="{{ section.settings.right_arrow | img_url: '40x40'}}"></button>
+      </div>
+    </div>
+  </div>
+</div>
+{% endif %}
+<style>
+  	.cong-details-border{ border-bottom: 3px solid #dfe0eb; }
+    .right-arrow{ border-radius: 99px;background-color: #332e54; }
+</style> 
+{% schema %}
+  {
+    "name": "step 3 ",
+    "settings": [
+		{
+         	"type": "checkbox",
+         	"id": "step-3-check",
+         	"label": "step 3"
+	  	},
+		{
+			"type":"image_picker",
+			"id":"section_img",
+			"label":"image"
+		},
+		{
+			"type":"textarea",
+			"id":"text",
+			"label":"text"
+		},
+		{
+			"type":"image_picker",
+			"id":"left_arrow",
+			"label":"left arrow"
+		},
+		{
+			"type":"image_picker",
+			"id":"right_arrow",
+			"label":"right arrow"
+		}
+		
+	],
+	"blocks": [
+              {
+                "type":"select",
+                "name":"add",
+                "settings": [
+                      {
+                  "type":"image_picker",
+                  "id":"deatils_img",
+                  "label":"image"
+              },
+              {
+                  "type":"color",
+                  "id":"box_color",
+                  "label":"box color"
+              },
+              {
+                  "type":"text",
+                  "id":"cong_details_text",
+                  "label":"text"
+              },
+              {
+                  "type":"range",
+                  "id":"font_weight",
+                  "min":400,
+                  "max":700,
+                  "step":100,
+                  "unit":"px",
+                  "label":"font weight",
+                  "default": 500
+              },
+              {
+                  "type":"checkbox",
+                  "id":"border-ckeck",
+                  "label":"border"
+              }
+			]
+		}
+	]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

@@ -1,0 +1,105 @@
+{% if section.settings.step-7-check == true %}
+<!--   <div class="congratulations-border"><span class="w-95"></span></div> -->
+  <div class="bg-lightgray mt-n4 w-100 h-100 hide" step="5.2">
+    <div class="container py-5">
+      <div class="col-lg-6 col-md-8 pt-5 pb-2 mx-auto">
+        <div class="text-center">
+          <h2 class="fs-24 text-none letter-spacing-0 font-weight-bold text-lightblue">{{ section.settings.headding_text }}</h2>
+          <p class="fs-20 mb-4 cong-step-7-details text-lightblue font-semibold">{{ section.settings.text }}</p>
+          <img src="{{ section.settings.main_image | img_url: 'master' }}">
+        </div>
+      </div>
+      <div class="col-lg-7 col-md-10 mx-auto">
+        <div class="p-4 cong-laststep-box">
+          <div class="d-sm-flex align-items-center">
+            <div>
+              <h4 class="fs-20 mb-2 text-lightblue">{{ section.settings.box_hedding_text }}</h4>
+              <p class="fs-16 cong-step-7-details font-medium mb-2 text-lightblue">{{ section.settings.box_details }}</p>
+              <a class="fs-14 cong-laststep-link  text-lightblue mb-4 next_question" data-current="5.2" data-next="7" href="javascript:void(0);">{{ section.settings.link_text }}</a>
+            </div>
+            <img class="mt-3 mt-sm-0" src="{{ section.settings.box_image | img_url: 'master' }}">
+          </div>
+          <span class="p-3 mt-3 text-lightblue text-center w-100 cong-step-7-green d-block fs-20">Goal: <span class="step_1_answer"></span></span>
+        </div>
+        <div class="d-flex justify-content-center pb-3">
+          <div class="col-md-6 col-12 mx-auto">
+        	<a href="{{ section.settings.button_url }}" class="cong-step-7-button text-center text-white d-block mt-4 fs-16 text-uppercase add_cart button-darkpurple" >{{ section.settings.button_text }}</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endif %}
+{% schema %}
+  {
+    "name": "step 7",
+    "settings": [
+		{
+         "type": "checkbox",
+         "id": "step-7-check",
+         "label": "step 1"
+	  	},
+		{
+			"type":"textarea",
+			"id":"headding_text",
+			"label":"text"
+		},
+		{
+			"type":"text",
+			"id":"text",
+			"label":"text"
+		},
+		{
+			"type":"image_picker",
+			"id":"main_image",
+			"label":"image"
+		},
+		{
+			"type":"text",
+			"id":"box_hedding_text",
+			"label":"box hedding text"
+		},
+		{
+			"type":"textarea",
+			"id":"box_details",
+			"label":"box details"
+		},
+		{
+			"type":"text",
+			"id":"link_text",
+			"label":"link text"
+		},
+		{
+			"type":"url",
+			"id":"link_url",
+			"label":"link url"
+		},
+		{
+			"type":"image_picker",
+			"id":"box_image",
+			"label":"box image"
+		},
+		{	
+			"type":"text",
+			"id":"green_box_text",
+			"label":"text"
+		},
+		{	
+			"type":"text",
+			"id":"button_text",
+			"label":"button text"
+		},
+		{
+			"type":"url",
+			"id":"button_url",
+			"label":"button url"
+		}
+	]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

@@ -1,0 +1,121 @@
+{% if section.settings.congratulations-popup-check == true %}
+<!-- <div class="congratulations-border"><span class="w-95"></span></div> -->
+<div class="cong-step-7 mx-auto hide py-5" step="7">
+  <div class="border boder-radius-47">
+    <div class="position-relative">
+      <img class="w-100" src="{{ section.settings.banner_image | img_url: 'master' }}">
+      <div class="position-absolute cong-step-7-image">
+         <a href="javascript:void(0)" class="d-block bg-white rounded-circle p-3 previous_step" data-current="7" data-previos="5.2"><img src="{{ section.settings.close_icon | img_url: 'master' }}"></a>
+      </div>
+  	</div>
+    <div class="cong-step-7-box">
+      <h4 class="fs-24 text-lightblue">{{ section.settings.headng_text }}</h4>
+      <span class="p-3 mb-4 text-lightblue text-center cong-step-7-green d-block fs-16">Goal: <span class="step_1_answer"></span></span>
+      <p class="fs-16 mb-4 cong-step-7-details text-lightblue">{{ section.settings.green-box-details }}</p>
+      {% for block in section.blocks %}
+      {% if block.type == 'product' %}
+      <div class="d-flex align-items-center w-100 cong-popup-product-content bg-white">
+        <img class="mr-3" src="{{ block.settings.product_image | img_url: '50x' }}">
+        <p class="font-semibold text-lightblue py-2 m-0">{{ block.settings.product_content }}</p>
+      </div>
+      {% endif %}
+      {% endfor %}
+      <ul class="seleted_value fs-14 mb-4 mt-3 cong-step-7-details text-lightblue">
+        
+      </ul>
+<!--       {% for block in section.blocks %}
+      <p class="font-semibold fs-18 line-height-20 text-lightblue">{{ block.settings.deails_text }}<p>
+      {% endfor %} -->
+    </div>
+  </div>
+  <a href="javascript:void(0);" class="cong-step-7-button text-center text-white d-block mt-4 fs-16 text-uppercase mx-5 add_cart button-darkpurple">{{ section.settings.button_text }}</a>
+</div>
+{% endif %}
+<style>
+  .seleted_value li p{ font-size: 16px; }
+  .cong-popup-product-content{ box-shadow: 1px 1px 34px -8px rgba(0,0,0,0.15);-webkit-box-shadow: 1px 1px 34px -8px rgba(0,0,0,0.15);-moz-box-shadow: 1px 1px 34px -8px rgba(0,0,0,0.15);border-radius: 10px;
+    margin: 12px 0;max-height: 50px;width: 100%;overflow: hidden; }
+  .cong-popup-product-content img{ object-fit: cover; }
+</style>
+{% schema %}
+  {
+    "name": "congratulations-popup",
+    "settings": [
+		{
+         	"type": "checkbox",
+         	"id": "congratulations-popup-check",
+         	"label": "step 6"
+	  	},
+		{
+			"type":"image_picker",
+			"id":"banner_image",
+			"label":"image"
+		},
+		{
+			"type":"image_picker",
+			"id":"close_icon",
+			"label":"close icon"
+		},
+		{
+			"type":"text",
+			"id":"headng_text",
+			"label":"hadding text"
+		},
+		{	
+			"type":"text",
+			"id":"green_box_text",
+			"label":"text"
+		},
+		{	
+			"type":"textarea",
+			"id":"green-box-details",
+			"label":"text"
+		},
+		{	
+			"type":"text",
+			"id":"button_text",
+			"label":"button text"
+		},
+		{
+			"type":"url",
+			"id":"button_url",
+			"label":"button url"
+		}
+	],
+	"blocks": [
+			  {
+				"type":"product",
+				"name":"product",
+				"settings": [
+					{
+						"type":"image_picker",
+						"id":"product_image",
+						"label":"product image"
+					},
+					{
+						"type":"text",
+						"id":"product_content",
+						"label":"product content"
+					}
+  			  ]
+			  },
+              {
+                "type":"select",
+                "name":"content text",
+                "settings": [
+                {
+                 "type":"text",
+				 "id":"deails_text",
+				 "label":"text"
+				}
+			]
+		}
+	]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

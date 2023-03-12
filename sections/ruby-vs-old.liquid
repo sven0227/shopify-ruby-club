@@ -1,0 +1,116 @@
+<div class="py-5" style="background-color:{{ section.settings.background_color }};">
+  <div class="col-12 mx-auto ruby-vs-old-text">
+  	<img class="mx-auto d-block text-center" src="{{ section.settings.heading_image | img_url: 'master' }}">
+  </div>
+  <div class="container">
+    <div class="d-flex align-items-end pb-2 flex-wrap justify-content-center pt-5">
+      <div class="col-6 px-0 px-sm-3 text-right">
+      	<img src="{{ section.settings.image_1 | img_url: '400x300' }}">
+      </div>
+      <div class="col-6 px-0 px-sm-3">
+      	<img src="{{ section.settings.image_2 | img_url: '400x300' }}">
+      </div>
+    </div>
+    <div class="col-lg-10 px-0 px-sm-3 mx-auto">
+      <table class="ruby-vs-old-table d-block p-sm-3 p-2">
+        <tr>
+          <th></th>
+          <th><h2 class="fs-25 font-semibold text-none text-gray letter-spacing-0">{{ section.settings.ruby_vs_old_teble2_heading }}</h2></th>
+          <th><h2 class="fs-25 font-semibold text-none text-gray letter-spacing-0">{{ section.settings.ruby_vs_old_teble3_heading }}</h2></th>
+        </tr>
+        {% for block in section.blocks %}
+        <tr>
+          <td class="ruby-vs-old-button px-1 px-sm-2"><span class="py-3 px-md-3 px-1 font-weight-bold border-radius-12 d-block fs-18 text-center" style="background-color:{{ block.settings.btn-bg-color }}; color: {{ block.settings.btn_text_color }};">{{ block.settings.btn_text }}</span></td>
+          <td class="px-1 px-sm-2"><p class="text-18">{{ block.settings.ruby_vs_old_teble2_text }}</p></td>
+          <td class="px-1 px-sm-2"><p class="text-18">{{ block.settings.ruby_vs_old_table3_text }}</p></td>
+        </tr>
+        {% endfor %}
+      </table>
+    </div>
+  </div>
+</div>
+<style>
+  .ruby-vs-old-text img{max-width: 500px;height:auto;}
+  @media (max-width: 767px){ .ruby-vs-old-text img{ max-width: 400px; } }
+  @media (max-width: 576px){ .ruby-vs-old-text img{ max-width: 100%; } }
+</style>
+{% schema %}
+  {
+    "name": "ruby vs old",
+    "settings": [
+		{
+			"type":"color",
+			"id":"background_color",
+			"label":"background color"
+		},
+		{
+			"type":"image_picker",
+			"id":"heading_image",
+			"label":"heading image"
+		},	
+		{
+			"type":"image_picker",
+			"id":"image_1",
+			"label":"image 1"
+		},
+		{
+			"type":"image_picker",
+			"id":"image_2",
+			"label":"image 2"
+		},
+ 		{
+            "type":"textarea",
+            "id":"ruby_vs_old_teble2_heading",
+            "label":"text heading"
+		},
+		{
+            "type":"textarea",
+            "id":"ruby_vs_old_teble3_heading",
+            "label":"text heading"
+		}
+	],
+	"blocks":[
+			{
+              "name":"add details",
+              "type":"text",
+              "settings":[
+                {	
+                  "type":"color",
+                  "id":"btn-bg-color",
+                  "label":"button background color"
+                },
+                {
+                  "type":"color",
+                  "id":"btn_text_color",
+                  "label":"button text color"
+                },
+                {
+                  "type":"text",
+                  "id":"btn_text",
+                  "label":"button text"
+                },
+				{
+                  "type":"textarea",
+                  "id":"ruby_vs_old_teble2_text",
+                  "label":"text"
+				},
+				{
+                  "type":"textarea",
+                  "id":"ruby_vs_old_table3_text",
+                  "label":"text"
+				}
+			]
+		}
+	],
+	"presets": [{
+    "name": "Ruby vs Old",
+    "category": "section"
+    }]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

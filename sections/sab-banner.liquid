@@ -1,0 +1,53 @@
+<div class="sab-benner-img" style="background-image: url({{ section.settings.background_image | img_url: '150x150' }});">
+  <div class="container">
+    <div class="col-md-6 mx-auto">
+      <div class="text-center">
+        <h2 class="letter-spacing-1 text-drak text-lightdrak font-weight-bold- font-lovera fs-52 text-none">{{ section.settings.heading_text }}</h2>
+        <a href="{{ section.settings.button_url }}" class="button-darkpurple my-3">{{ section.settings.button_text }}</a>
+        <p class="font-semibold fs-11">{{ section.settings.details_text }}</p>
+      </div>
+    </div>
+  </div>
+</div>
+{% schema %}
+  {
+    "name": "Section name",
+    "settings": [
+		{
+			"type":"image_picker",
+			"id":"background_image",
+			"label":"background image"
+		},
+		{
+			"type":"textarea",
+			"id":"heading_text",
+			"label":"heading text"
+		},
+		{
+			"type":"text",
+			"id":"button_text",
+			"label":"button text"
+		},
+		{	
+			"type":"url",
+			"id":"button_url",
+			"label":"button link"
+		},
+		{
+			"type":"textarea",
+			"id":"details_text",
+			"label":"text"
+		}
+	],
+	"presets": [{
+    "name": "Sab Banner",
+    "category": "section"
+    }]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

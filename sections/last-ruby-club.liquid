@@ -1,0 +1,175 @@
+<div class="last-section-wrp position-relative py-5">
+  <div class="ls-symbol position-absolute d-none d-lg-block">
+    <img src="{{ section.settings.ls_top_img  | img_url:'master'}}" class="img-fluid">
+  </div>
+  <div class="row align-items-center m-0"> 
+    <div class="col-12 col-lg-6">
+      <div class="d-flex">
+        <div class="cw-40">
+        </div>
+        <div class="cw-60">
+          <div class="ls-detail">
+            {% if section.settings.ls_title %}
+            <h2 class="ls-title fs-52 text-white font-lovera">{{ section.settings.ls_title }}</h2>
+            {% endif %}
+            {% if section.settings.ls_subtxt %}
+            <p class="fs-16 text-white">{{ section.settings.ls_subtxt }}</p>
+            {% endif %}
+            <div class="ls-list pt-3">
+              {% for block in section.blocks %}
+              <p class="fs-16 py-2 text-white ls-list-item position-relative"><span class="ls-list-img position-absolute"><img src="{{ section.settings.img | img_url:'master' }}" class="img-fluid"></span>{{ block.settings.list_txt }}</p>
+              {% endfor %}
+            </div>
+            <div class="ls-plan d-none d-lg-block">
+              <p class="text-white d-flex align-items-center">Starting at &nbsp;<span class="ls-price"> ${{ section.settings.price_dollar }}<sup>{{ section.settings.price_cent }}</sup></span> / month</p>
+              <a href="{{ section.settings.ls_btn_url }}" class="ls-btn">{{ section.settings.ls_btn_txt }}</a>
+              <p class="btn-subtxt">{{ section.settings.btn_subtxt }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 px-0 col-lg-6">
+      <img src="{{ section.settings.half_img | img_url:'master' }}" class="img-fluid" />
+    </div>
+    <div class="col-12 d-lg-none ls-mobile position-relative">
+      <div class="ls-symbol1 position-absolute d-block d-lg-none">
+        <img src="{{ section.settings.ls_top_img  | img_url:'master'}}" class="img-fluid">
+      </div>
+      <p class="text-white d-flex align-items-center ls-mobile-price">Starting at &nbsp;<span class="ls-price"> ${{ section.settings.price_dollar }}<sup>{{ section.settings.price_cent }}</sup> </span> / month</p>
+      <a href="{{ section.settings.ls_btn_url }}" class="ls-btn">{{ section.settings.ls_btn_txt }}</a>
+      <p class="btn-subtxt">{{ section.settings.btn_subtxt }}</p>
+    </div>
+  </div> 
+</div>
+
+
+<style>
+  .cw-40{width:40%;}
+  .cw-60{width:60%;}
+  .last-section-wrp{background:#BDBFE7;}
+  .ls-symbol{top:40px;left:40px;width:100px;height:100px;}
+  .ls-title{text-transform:unset;letter-spacing:unset;width:95%;}
+  .ls-list-item{padding-left:50px;margin-bottom:24px;}
+  .ls-list-img{width: 40px;height: 40px;left: 0;top: -5px;}
+  .ls-price{color:#474646;font-weight:900;font-size:40px;}
+  .ls-price sup{font-weight:400;font-size: 20px;top: -1.2em;}
+  @media(max-width: 500px){ .ls-price sup{ font-size: 16px;top: 0px; } }
+  .ls-btn {padding: 15px 50px;display: inline-block;background: #ffffff;border-radius: 10px;text-transform: uppercase;font-weight: 700;margin-bottom:10px;color:#545454;text-decoration:none;font-family: avenir;}
+  a.ls-btn:hover{text-decoration:none;}
+  .btn-subtxt{font-size:11px;font-weight:700;white-space: nowrap;}
+  @media(max-width:1600px){
+    .cw-40{width:20%;}
+    .cw-60{width:80%;}
+    .ls-list-item{margin-bottom:20px;}
+  }
+  @media(max-width:1350px){
+      .ls-symbol{top:20px;left:40px;}
+    .cw-40{display:none;}
+    .cw-60{width:100%;padding-top:90px;}
+  }
+  @media(max-width: 575px){ .cw-60{ padding-top: 0; } }
+  @media(max-width:991px){
+    .ls-mobile{display: flex;flex-direction: column;justify-content: center;align-items: center;}
+        .ls-list-item{margin-bottom:40px;}
+  }
+  @media(max-width: 575px){ .ls-list-item{ margin-bottom: 15px; } }
+  .ls-symbol1{top: -70%;left: 10%;width: 150px;}
+  @media(max-width:700px){
+    .ls-symbol1{top: -50%;left: 10%;width: 100px;}
+  }
+  @media(max-width:500px){
+    .ls-symbol1{top: -25%;left: 5%;width: 66px;}
+    .ls-mobile-price{font-size: 13px;padding-left:23px;}
+    .ls-price{font-size:16px;}
+  }
+</style>
+
+
+
+{% schema %}
+  {
+    "name": "last section by tcustom",
+    "settings": [
+		{
+			"type":"image_picker",
+			"id":"ls_top_img",
+			"label":"select image from here"
+		},		
+		{
+			"type":"image_picker",
+			"id":"half_img",
+			"label":"select image from here"
+		},
+		{
+			"type":"text",
+			"id":"ls_title",
+			"label":"Enter title text here"
+		},
+		{
+			"type":"text",
+			"id":"ls_subtxt",
+			"label":"Enter sub text here"
+		},
+		{
+			"type":"text",
+			"id":"price_dollar",
+			"label":"Enter price in dollar here"
+		},
+		{
+			"type":"text",
+			"id":"price_cent",
+			"label":"Enter price in cent here"
+		},
+		{
+			"type":"url",
+			"id":"ls_btn_url",
+			"label":"Select button url from here"
+		},
+		{
+			"type":"text",
+			"id":"ls_btn_txt",
+			"label":"Enter button title here"
+		},
+		{
+			"type":"text",
+			"id":"btn_subtxt",
+			"label":"Enter button title here"
+		},
+		{
+			"type":"image_picker",
+			"id":"img",
+			"label":"select image from here"
+		}
+		],
+		"blocks":[
+			{
+				"name":"last section list items",
+				"type":"text",
+				"settings":[
+					{
+						"type":"text",
+						"id":"list_txt",
+						"label":"Enter List Items from here"
+					}
+				]
+			}
+		],
+	  "presets": [
+    {
+      "name": {
+        "en": "Image with text"
+      },
+      "category": {     
+        "en": "Image"
+      }
+    }
+  ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

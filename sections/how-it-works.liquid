@@ -1,0 +1,70 @@
+<div id="how-it-works" class="py-5" style="background-color: {{ section.settings.background_color }};">
+  <div class="container">
+    <h2 class="text-center letter-spacing-n1 text-none fs-52 font-lovera mb-3">{{ section.settings.heding_text }}</h2>
+    <div class="row">
+      {% for block in section.blocks %}
+        <div class="col-md-4">
+          <div class="text-center my-md-5 my-3">
+          	<img src="{{ block.settings.image | img_url: '250x250' }}">
+          	<h2 class="pt-mono fs-55 font-weight-bold text-none letter-spacing-n1">{{ block.settings.number }}</h2>
+            <div class="col-sm-11 mx-auto">
+              <p class="fs-15 font-medium">{{ block.settings.text }}</p>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div> 
+</div>
+{% schema %}
+  {
+    "name": "How it Works",
+	"max_blocks": 3,
+    "settings": [
+        {
+        "type":"color",
+        "id":"background_color",
+        "label":"background color"
+        },
+        {
+        "type":"textarea",
+        "id":"heding_text",
+        "label":"heding text"
+		}
+	
+	],
+	"blocks":[
+			{
+            "type":"select",
+            "name":"Works Add",
+            "settings": [
+              {
+                  "type":"image_picker",
+                  "id":"image",
+                  "label":"image"
+              },
+              {
+                  "type":"text",
+                  "id":"number",
+                  "label":"number"
+              },
+              {
+                  "type":"textarea",
+                  "id":"text",
+                  "label":"text"
+              }
+			]
+		}
+	],
+	"presets": [{
+    "name": "How it Works",
+    "category": "section"
+    }]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

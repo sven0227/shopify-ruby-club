@@ -1,0 +1,68 @@
+<div class="py-sm-5 py-4" style="background-color: {{ section.settings.background_color }};">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-lg-6 px-0 px-sm-3">
+        <img src="{{ section.settings.image | img_url: 'master' }}">
+      </div>
+      <div class="col-lg-6">
+        <h2 class="fs-52 font-lovera text-none letter-spacing-0">{{ section.settings.heding_text }}</h2>
+        <p class="fs-15 font-medium">{{ section.settings.details_text }}</p>
+        <div class="d-flex align-items-start flex-wrap">
+          {% for block in section.blocks %}
+          	<img class="cus-com-logo-img m-sm-2 m-1" src="{{block.settings.logo_image | img_url: 'master' }}">
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% schema %}
+  {
+    "name": "Custom combinations",
+    "settings": [
+		{
+			"type":"color",
+			"id":"background_color",
+			"label":"background color"
+		},
+		{
+			"type":"image_picker",
+			"id":"image",
+			"label":"image"
+		},	
+		{
+			"type":"textarea",
+			"id":"heding_text",
+			"label":"heding text"
+		},
+		{	
+			"type":"textarea",
+			"id":"details_text",
+			"label":"details text"
+		}
+	],
+	"blocks":[
+		{
+            "type":"select",
+            "name":"image add",
+            "settings": [
+              {
+                  "type":"image_picker",
+				  "id":"logo_image",
+				  "label":"image"
+              } 
+		   ]
+		}
+	],
+	"presets": [{
+    "name": "Custom combinations",
+    "category": "section"
+    }]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

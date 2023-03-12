@@ -1,0 +1,67 @@
+<div class="position-relative mainbanner">
+  <img class="position-absolute d-none d-sm-block w-100 h-100 main-banner-image" src="{{ section.settings.mainbanner_image | img_url: 'master' }}">
+  <img class="position-absolute d-sm-none d-block w-100 h-100 main-banner-image" src="{{ section.settings.mainbanner_sm_image | img_url: 'master' }}">
+  <div class="container">
+  	<div class="main-banner-deatils">
+      <div class="col-lg-6 col-md-8">
+      	<h1 class="fs-52">{{ section.settings.maninbanner_heding }}</h1>
+      	<p class="fs-15 my-3 font-medium">{{ section.settings.mainbanner_text }}</p>
+      	<a href="{{ section.settings.button_url }}" class="button-purple mt-sm-3">{{ section.settings.button_text }}</a>
+      	<p class="fs-11 font-semibold mt-2 text-black">{{ section.settings.text }}</p>
+      </div>
+  	</div>
+  </div>
+</div>
+{% schema %}
+  {
+    "name": "main banner",
+    "settings": [
+			{	
+				"type":"image_picker",
+				"id":"mainbanner_image",
+				"label":"Banner Image"
+			},
+			{
+				"type":"image_picker",
+				"id":"mainbanner_sm_image",
+				"label":"Responsive Banner Image"
+			},
+			{
+				"type":"textarea",
+				"id":"maninbanner_heding",
+				"label":"heding text"
+			},
+			{
+				"type":"textarea",
+				"id":"mainbanner_text",
+				"label":"details text"
+			},
+			{
+				"type":"url",
+				"id":"button_url",
+				"label":"button link"
+			},
+			{
+				"type":"text",
+				"id":"button_text",
+				"label":"button text"
+			},
+			{
+				"type":"text",
+				"id":"text",
+				"label":"text"
+			}
+			
+	],
+	 "presets": [{
+    "name": "mainbanner",
+    "category": "image"
+    }]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

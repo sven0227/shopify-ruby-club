@@ -1,0 +1,416 @@
+{% comment %}{% section 'congratulations-step1' %}
+{% section 'congratulations' %}{% endcomment %}
+<div class="w-100 bg-white cong-logo text-center pt-3">
+  <img src="https://cdn.shopify.com/s/files/1/0575/0823/3413/files/logo_57049a78-1d70-4077-b0ed-cad76fc0038f.png?v=1622864976" class="cong-logo-img mx-auto">
+</div>
+<div class="congratulations-border"><span class="w-15"></span></div>
+<div id="js-confetti" class="hide-confetti"></div>
+
+{% section 'congratulations-step2' %}
+
+<div class="container py-5 hide" step="2" data-result="">
+  <div class="congratulations-deatils d-flex flex-column justify-content-center">
+    <div class="col-md-5 z-index-999 col-sm-8 mx-auto my-2">
+      <img class="d-block mx-auto" src="//cdn.shopify.com/s/files/1/0575/0823/3413/files/Screen_Shot_2021-04-06_at_2.15.53_PM_copy_2.png?v=1622546667">
+    </div>
+    <div class="col-lg-7 col-md-10 col-12 mx-auto">
+      <h1 class="fs-24 text-center">What was your name?</h1>
+    </div>
+    <div class="col-lg-5 col-md-7 col-sm-8 mx-auto my-2">
+      <div class="cong-step-2-details-">
+        <div class=" mx-auto px-3 py-2 d-flex align-items-center cong-details-border-">
+          <label for="cust_name" class="cust-name">
+            <input type="text" id="cust_name" name="quizName" placeholder="Name" autofocus value="" class="">
+          </label>
+        </div>
+
+
+      </div>
+      <div class="d-flex align-items-center justify-content-center mt-4">
+        <a href="javascript:void(0)" class="mx-4 previous_step" data-current="2" data-previos="1"><img src="//cdn.shopify.com/s/files/1/0575/0823/3413/files/left_40x40.png?v=1622612448"></a>
+        <button class="right-arrow outline-none p-3 mx-4 next_question" data-current="2" data-next="3" disabled="disabled"><img src="//cdn.shopify.com/s/files/1/0575/0823/3413/files/right_351101ac-6ae3-476f-b2ab-0b4b89fa743f_40x40.png?v=1622612582"></button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+{% section 'congratulations-step3' %}
+{% section 'congratulations-step4' %}
+{% section 'congratulations-step5' %}
+
+<div class="container py-5 hide" step="6" data-result="">
+  <div class="congratulations-deatils d-flex flex-column justify-content-center">
+    <div class="col-md-5 z-index-999 col-sm-8 mx-auto my-2">
+      <img class="d-block mx-auto" src="//cdn.shopify.com/s/files/1/0575/0823/3413/files/Screen_Shot_2021-04-06_at_2.15.53_PM_copy_2.png?v=1622546667">
+    </div>
+    <div class="col-lg-7 col-md-10 col-12 mx-auto">
+      <h1 class="fs-24 text-center">Almost done!:) - your email?</h1>
+    </div>
+    <div class="col-lg-5 col-md-7 col-sm-8 mx-auto my-2">
+      <div class="cong-step-2-details-">
+
+        <div class="mx-auto px-3 py-2 d-flex align-items-center  cong-details-border*">
+          <label for="cust_name" class="cust-name">
+            <input type="email" id="cust_email" placeholder="Email" name="quizEmail" value="" autofocus class="">
+          </label>
+        </div>
+
+
+      </div>
+      <div class="d-flex align-items-center justify-content-center mt-4">
+        <a href="javascript:void(0)" class="mx-4 previous_step" data-current="6" data-previos="5"><img src="//cdn.shopify.com/s/files/1/0575/0823/3413/files/left_40x40.png?v=1622612448"></a>
+        <button class="right-arrow outline-none p-3 mx-4 next_question" data-current="6" data-next="5.3" disabled="disabled"><img src="//cdn.shopify.com/s/files/1/0575/0823/3413/files/right_351101ac-6ae3-476f-b2ab-0b4b89fa743f_40x40.png?v=1622612582"></button>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% section 'congratulations-step1' %}
+{% section 'congratulations-step6' %}
+{% section 'congratulations-laststep' %}
+{% section 'congratulations-popup' %}
+
+<style>
+  button:focus{ outline: none; }
+  .cust-name{ width: 100%; }
+  .cust-name input{width: 100%;border: none;outline: none; background: #fff;-webkit-box-shadow: 0px 3px 50px rgb(83 92 119 / 10%); box-shadow: 0px 3px 50px rgb(83 92 119 / 7%);padding: 19px 20px;border-radius: 10px;color: #454444; }
+</style>
+<script>
+  $(document).ready(function(){
+    var name = null, email = null;
+    function _nextfun(currnt,n) {
+      $('[step="'+currnt+'"]').addClass('hide');
+      $('[step="'+n+'"]').removeClass('hide');
+      if(n == '1'){
+        $('.congratulations-border').find('span').attr('class','w-15')
+      }else if(n == '2'){
+        $('.congratulations-border').find('span').attr('class','w-25')
+        var ans_1 = $('[step="'+currnt+'"]').attr('data-result')
+        $('.step_1_answer').text(ans_1);
+      }else if(n == '3'){
+        $('.congratulations-border').find('span').attr('class','w-50')
+      }else if(n == '4'){
+        $('.congratulations-border').find('span').attr('class','w-60')
+      }else if(n == '5'){
+        $('.congratulations-border').find('span').attr('class','w-70')
+//         setTimeout(function(){
+//           $('[step="'+n+'"]').addClass('hide');
+//           $('[step="5.1"]').removeClass('hide');
+//         },3000)
+        
+//         setTimeout(function(){
+//           $('[step="5.2"]').removeClass('hide');
+//           $('[step="5.1"]').addClass('hide');
+//         },6000)
+        
+      }else if(n == '5.3'){        
+       var fname = $('[step="5.1"] [data-name]').text().replace('(*Name*)',name);
+        $('[step="5.1"] [data-name]').text(fname);
+        confettti();
+          $('#js-confetti').removeClass('hide-confetti')
+        setTimeout(function(){
+           $('[step="5.3"]').addClass('hide'); 
+           $('[step="5.2"]:not(.hide)').addClass('hide');
+          $('[step="5.1"]').removeClass('hide');
+          $('#js-confetti').addClass('hide-confetti')         
+        },3000)
+        setTimeout(function(){
+          $('[step="5.1"]').addClass('hide');
+//            $('[step="5.1"]').addClass('hide'); 
+          $('[step="5.2"]').removeClass('hide');                  
+        },7000)
+      }else if(n == '7'){
+        $('.seleted_value').html('');
+        $('.congratulations-border').find('span').attr('class','w-95')
+        var html = '';
+        $('[data-result]').each(function(index){
+          var txt = '';
+          if($(this).attr('data-result').length > 0){
+          if(index > 0 && index < 5){
+            if(index == 2){
+              txt = 'Period Care';
+            }
+            else if(index == 4){
+              txt = 'Cravings Preferences';
+            }
+            else if(index == 3){
+              txt = 'Time of Month';              
+            }
+            html += '<li><p class="font-semibold fs-24 line-height-20 text-lightblue mb-2">' +txt+ ' : '+ $(this).attr('data-result')+'</p></li>';
+            
+          }
+        }
+        });
+        $('.seleted_value').append(html);
+      }
+    }
+    
+    $('[radio_div]').on('click',function(){
+      $(this).find(':radio').prop('checked', true);
+      $(this).parents('[data-result]').find('.next_question').prop('disabled',false);
+      var selected_val = $(this).find(':radio').val();
+      //console.log(selected_val);
+      $(this).parents('[step]').attr('data-result',selected_val)
+    });
+    
+    $('.next_question').on('click',function(){
+      var current = $(this).attr('data-current');
+      var nextstep = $(this).attr('data-next');
+      _nextfun(current,nextstep);
+    });
+    
+     $('.previous_step').on('click',function(){
+      var current = $(this).attr('data-current');
+      var previoustep = $(this).attr('data-previos');
+      _nextfun(current,previoustep);
+    });
+    
+    $('#cust_name').on('keyup keypress', function(){
+      if($.trim($(this).val()).length > 0){
+        name = $(this).val();
+//         var fname = $('[step="5.1] [data-name]').text().replace('(*Name*)','('+name+')');
+//         $('[step="5.1"] [data-name]').text(fname);
+        $(this).closest('[data-result]').find('.next_question').prop('disabled',false);
+      } else {
+        name = null;
+        $(this).closest('[data-result]').find('.next_question').prop('disabled',true);
+      }
+    });
+    
+    $('#cust_email').on('keyup keypress', function(){
+      if($.trim($(this).val()).length > 0){
+        email = $(this).val();
+        $(this).closest('[data-result]').find('.next_question').prop('disabled',false);
+      } else {
+        email = null;
+        $(this).closest('[data-result]').find('.next_question').prop('disabled',true);
+      }
+    });
+    
+    
+    
+    $('.add_cart').on('click',function(){
+      const properties = {};
+      $('[data-result]').each(function(i,val){
+       var index = i+1;
+         properties['Answer '+index] = $(this).attr('data-result');
+      });
+      
+      properties['name'] = name;
+      properties['email'] = email;
+      var data_ajax = {
+        quantity: 1,
+        id: 39912649359557,
+        selling_plan: {{all_products['quiz-product'].selling_plan_groups[0].selling_plans[0].id}},
+        properties
+      };
+      
+      $.ajax({
+        type: 'POST',
+        url: '/cart/add.js',
+        data: data_ajax,
+        dataType: 'json',
+        success: function(data){
+//             window.location.href ='/cart';
+          window.location.href = '/checkout?discount=FIRSTBUY';
+        },
+        error: function (jqXHR) {
+          jsonValue = $.parseJSON( jqXHR.responseText );
+          //console.log(jqXHR);
+          alert("Failed: "+ jsonValue.status + ": " + jsonValue.description);
+        }
+
+      });
+      
+    });
+
+function confettti(){
+class Progress {
+  constructor(param = {}) {
+    this.timestamp        = null;
+    this.duration         = param.duration || Progress.CONST.DURATION;
+    this.progress         = 0;
+    this.delta            = 0;
+    this.progress         = 0;
+    this.isLoop           = !!param.isLoop;
+
+    this.reset();
+  }
+
+  static get CONST() {
+    return {
+      DURATION : 1000
+    };
+  }
+
+  reset() {
+    this.timestamp = null;
+  }
+
+  start(now) {
+    this.timestamp = now;
+  }
+
+  tick(now) {
+    if (this.timestamp) {
+      this.delta    = now - this.timestamp;
+      this.progress = Math.min(this.delta / this.duration, 1);
+
+      if (this.progress >= 1 && this.isLoop) {
+        this.start(now);
+      }
+
+      return this.progress;
+    } else {
+      return 0;
+    }
+  }
+}
+
+class Confetti { 
+  constructor(param) {
+    this.parent         = document.getElementById('js-confetti') || document.body;
+    this.canvas         = document.createElement("canvas");
+    this.ctx            = this.canvas.getContext("2d");
+    this.width          = param.width  || this.parent.offsetWidth;
+    this.height         = param.height || this.parent.offsetHeight;
+    this.length         = param.length || Confetti.CONST.PAPER_LENGTH;
+    this.yRange         = param.yRange || this.height * 2;
+    this.progress       = new Progress({
+      duration : param.duration,
+      isLoop   : true
+    });
+    this.rotationRange  = typeof param.rotationLength === "number" ? param.rotationRange
+                                                                   : 10;
+    this.speedRange     = typeof param.speedRange     === "number" ? param.speedRange
+                                                                   : 10;
+    this.sprites        = [];
+
+    this.canvas.style.cssText = [
+      "display: block",
+      "position: absolute",
+      "top: 0",
+      "left: 0",
+      "pointer-events: none"
+    ].join(";");
+
+    this.render = this.render.bind(this);
+
+    this.build();
+
+    this.parent.appendChild(this.canvas);
+    this.progress.start(performance.now());
+
+    requestAnimationFrame(this.render);
+  }
+
+  static get CONST() {
+    return {
+        SPRITE_WIDTH  : 9,
+        SPRITE_HEIGHT : 16,
+        PAPER_LENGTH  : 100,
+        DURATION      : 8000,
+        ROTATION_RATE : 50,
+        COLORS        : [
+          "#EF5350",
+          "#EC407A",
+          "#AB47BC",
+          "#7E57C2",
+          "#5C6BC0",
+          "#42A5F5",
+          "#29B6F6",
+          "#26C6DA",
+          "#26A69A",
+          "#66BB6A",
+          "#9CCC65",
+          "#D4E157",
+          "#FFEE58",
+          "#FFCA28",
+          "#FFA726",
+          "#FF7043",
+          "#8D6E63",
+          "#BDBDBD",
+          "#78909C"
+        ]
+    };
+  }
+
+  build() {
+    for (let i = 0; i < this.length; ++i) {
+      let canvas = document.createElement("canvas"),
+          ctx    = canvas.getContext("2d");
+
+      canvas.width  = Confetti.CONST.SPRITE_WIDTH;
+      canvas.height = Confetti.CONST.SPRITE_HEIGHT;
+
+      canvas.position = {
+        initX : Math.random() * this.width,
+        initY : -canvas.height - Math.random() * this.yRange
+      };
+
+      canvas.rotation = (this.rotationRange / 2) - Math.random() * this.rotationRange;
+      canvas.speed    = (this.speedRange / 2) + Math.random() * (this.speedRange / 2);
+
+      ctx.save();
+        ctx.fillStyle = Confetti.CONST.COLORS[(Math.random() * Confetti.CONST.COLORS.length) | 0];
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+      ctx.restore();
+
+      this.sprites.push(canvas);
+    }
+  }
+
+  render(now) {
+    let progress = this.progress.tick(now);
+
+    this.canvas.width  = this.width;
+    this.canvas.height = this.height;
+
+    for (let i = 0; i < this.length; ++i) {
+      this.ctx.save();
+        this.ctx.translate(
+          this.sprites[i].position.initX + this.sprites[i].rotation * Confetti.CONST.ROTATION_RATE * progress,
+          this.sprites[i].position.initY + progress * (this.height + this.yRange)
+        );
+        this.ctx.rotate(this.sprites[i].rotation);
+        this.ctx.drawImage(
+          this.sprites[i],
+          -Confetti.CONST.SPRITE_WIDTH * Math.abs(Math.sin(progress * Math.PI * 2 * this.sprites[i].speed)) / 2,
+          -Confetti.CONST.SPRITE_HEIGHT / 2,
+          Confetti.CONST.SPRITE_WIDTH * Math.abs(Math.sin(progress * Math.PI * 2 * this.sprites[i].speed)),
+          Confetti.CONST.SPRITE_HEIGHT
+        );
+      this.ctx.restore();
+    }
+
+    requestAnimationFrame(this.render);
+  }
+}
+
+(() => {
+  const DURATION = 8000,
+        LENGTH   = 120;
+
+  new Confetti({
+    width    : window.innerWidth,
+    height   : window.innerHeight,
+    length   : LENGTH,
+    duration : DURATION
+  });
+
+  setTimeout(() => {
+    new Confetti({
+      width    : window.innerWidth,
+      height   : window.innerHeight,
+      length   : LENGTH,
+      duration : DURATION
+    });
+  }, DURATION / 2);
+})();
+  
+}
+    
+  });
+  
+</script>

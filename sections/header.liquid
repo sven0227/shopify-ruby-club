@@ -1,0 +1,90 @@
+<nav class="nav-bar flex-lg-nowrap flex-wrap d-flex align-items-center justify-content-center py-lg-2">
+  <div class="pl-3 nav-bar-hamburger position-absolute d-lg-none order-sm-0">
+    <svg class="d-block hamburger-menu" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
+    <svg class="d-none hamburger-menu-close" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+  </div>
+  <div class="nav-logo d-flex mx-auto mx-sm-0 order-sm-1 order-lg-2 ml-lg-0 px-xl-3 px-2 py-sm-4 py-3 py-lg-0">
+    <a class="d-block" href="{{ section.settings.logo_link }}"><img style="width:{{ section.settings.logo_width }}px;" src="{{ section.settings.logo_image | img_url: 'master' }}"></a>
+  </div>
+  <ul class="d-lg-flex col-lg-5 justify-content-lg-end px-3 px-lg-0 d-none- order-sm-3 order-lg-1 nav-bar-items pt-3 pt-lg-0">
+    {% for link in linklists[section.settings.nav_left].links %}
+    <li class="px-xl-3 px-2 py-3 py-lg-0">
+      <a class="text-decoration-none text-uppercase font-semibold d-block" href="{{ link.url }}">{{ link.title}}</a>
+    </li>
+    {% endfor %}
+  </ul>
+  <ul class="d-lg-flex px-3 col-lg-5 px-lg-0 d-none- order-sm-4 order-lg-3 nav-bar-items pb-md-3 pb-lg-0">
+    {% for link in linklists[section.settings.nav_right].links %}
+    <li class="px-xl-3 px-2 py-3 py-lg-0">
+      <a class="text-decoration-none text-uppercase font-semibold d-block" href="{{ link.url }}">{{ link.title}}</a>
+    </li>
+    {% endfor %}
+  </ul>
+  <ul class="d-md-flex pr-3 px-3 px-md-0 order-md-2 order-lg-3 order-5 nav-bar-items-last align-items-center justify-content-end nav-last pb-3 pb-md-0">
+    <li class="px-xl-3 px-2 py-3 py-lg-0"><a class="text-decoration-none text-uppercase font-semibold d-block" href="/account/login">{{ section.settings.login }}</a></li>
+    <li class="px-xl-3 px-2 py-3 py-lg-0"><a class="nav-button text-decoration-none text-uppercase font-semibold d-inline-block" href="{{ section.settings.button_link }}">{{ section.settings.button }}</a></li>
+  </ul>
+</nav>
+{% schema %}
+  {
+    "name": "header",
+    "settings": [
+		{
+			"type":"link_list",
+			"id":"nav_left",
+			"label":"navigation"
+		},
+  		{
+  			"type":"image_picker",
+  			"id":"logo_image",
+  			"label":"logo"
+  		},
+  		{
+  			"type":"range",
+  			"id":"logo_width",
+  			"min":100,
+  			"max":400,
+  			"step":50,
+  			"unit":"px",
+  			"label":"logo width",
+  			"default":200
+  		},
+  		{
+  			"type":"url",
+  			"id":"logo_link",
+  			"label":"logo link"
+  		},
+  		{
+			"type":"link_list",
+			"id":"nav_right",
+			"label":"navigation"
+		},
+		{
+			"type":"text",
+			"id":"login",
+			"label":"login text"
+		},
+		{
+			"type":"url",
+			"id":"login_link",
+			"label":"login link"
+		},
+		{	
+			"type":"text",
+			"id":"button",
+			"label":"button text"
+		},
+		{
+			"type":"url",
+			"id":"button_link",
+			"label":"button link"
+		}
+	]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

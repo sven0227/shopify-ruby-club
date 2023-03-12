@@ -1,0 +1,105 @@
+<div class="featured-wrp py-5">
+  <div class="container">
+    <h2 class="featured-title font-lovera fs-52">{{ section.settings.feature_title }}</h2>
+    <div class="fi-wrp d-flex flex-wrap justify-content-around align-items-center">
+      {% for block in section.blocks %}
+          <div class="fi-inner"> 
+          <img src="{{ block.settings.feature_image | img_url:'master' }}" class="img-fluid">
+          </div>
+      {% endfor %}
+    </div>
+    <div>
+      <p class="feature-detail text-center position-relative">
+        <span class="quote1"><img src="{{ 'Group_3.png' | asset_url }}"></span>
+        {{ section.settings.feature_quote }}
+                <span class="rquote1"><img src="{{ 'Group_5.png' | asset_url }}"></span>
+      </p>
+    </div>
+  </div>
+</div>
+
+<style>
+  .featured-title{text-transform:capitalize;letter-spacing:unset;text-align:center;}
+  .fi-wrp{padding:35px 0;border-bottom:1px solid #E4E2E2;}
+  .fi-inner{width:15%;text-align:center;}
+  /*   .fi-inner img{height:35px;} */
+  .feature-detail{width:350px;margin:0 auto;padding:80px 0;}
+  .feature-detail .quote1{
+    position:absolute;
+    content:'';
+    font-size:50px;
+    display:block;
+    top:0px;
+    left:50%;
+    transform:translatex(-50%);
+  }
+  .feature-detail .rquote1{
+    position:absolute;
+    content:'';
+    font-size:50px;
+    display:block;
+    bottom:0px;
+    left:50%;
+    transform:translatex(-50%);
+
+  }
+  @media(max-width:767px){
+    .fi-inner:nth-child(1),
+    .fi-inner:nth-child(2){
+      width:40%;
+    }
+    .fi-inner:nth-child(3),
+    .fi-inner:nth-child(4),
+    .fi-inner:nth-child(5){
+      width:30%;
+      margin-top:30px;
+    }
+    .feature-detail{width:100%;}
+  }
+</style>
+{% schema %}
+  {
+    "name": "feature by tcustom",
+    "settings": [
+			{
+				"type":"text",
+				"id":"feature_title",
+				"label":"enter title here"
+			},
+			{	
+				"type":"text",
+				"id":"feature_quote",
+				"label":"enter Quote here"
+			}
+		],
+		"blocks":[
+			{
+				"name":"feature section images",
+				"type":"text",
+				"settings":[
+					{
+						"type":"image_picker",
+						"id":"feature_image",
+						"label":"Enter List Items from here"
+					}
+				]
+			}
+		],
+	  "presets": [
+    {
+      "name": {
+        "en": "Image"
+      },
+      "category": {     
+        "en": "Image"
+      }
+    }
+  ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}
